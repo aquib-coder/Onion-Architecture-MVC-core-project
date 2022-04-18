@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<link href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css" />
+<script scr="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<table id="myTable">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Mobile
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable({
+            "ajax": {
+                "url": "/api/studentAPI",
+                "dataSrc": ''
+               
+            },
+            columns: [
+                { data: "Name" },
+                { data: "Email" },
+                { data: "Mobile" }
+
+            ]
+        });
+    })
+</script>
